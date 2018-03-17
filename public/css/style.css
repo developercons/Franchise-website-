@@ -1,0 +1,19 @@
+/* nav */
+
+.top-menu a{
+    font-size: 12px;
+    color: white;
+    padding-right: 5px;
+}
+.top-menu{
+    padding: 5px 0;
+}
+.fc-langue button{
+    padding:  2px 5px;
+    border: solid 1px white;
+    background-color: transparent;
+}
+
+.bg-secondary{
+    background-color: #2F587C !important;
+}
