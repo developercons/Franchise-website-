@@ -358,6 +358,15 @@ return [
         'user_link_text' => 'Voir tous les utilisateurs',
         'user_text'      => 'Vous avez :count :string enregistrés. Cliquez sur le bouton ci-dessous pour afficher '.
                             'tous les utilisateurs.',
+        'franchise_link_text' => 'Voir tous les franchise',
+        'franchise_text'      => 'Vous avez :count :string enregistrés. Cliquez sur le bouton ci-dessous pour afficher '.
+                            'tous les franchise.',
+        'secteurs_link_text' => 'Voir tous les secteurs',
+        'secteurs_text'      => 'Vous avez :count :string enregistrés. Cliquez sur le bouton ci-dessous pour afficher '.
+                                 'tous les secteurs.',
+        'sous_secteurs_link_text' => 'Voir tous les sous-secteurs',
+        'sous_secteurs_text'      => 'Vous avez :count :string enregistrés. Cliquez sur le bouton ci-dessous pour afficher '.
+                                 'tous les sous-secteurs.'
     ],
 
     'form' => [

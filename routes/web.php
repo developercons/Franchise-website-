@@ -15,7 +15,14 @@ Route::get('/',"HomeController@index");
 
 
 Route::group(['prefix' => 'franchise'], function () {
-    Route::get('{categorie}/{id}-{name?}',"FranchiseController@singleFranchise");
+    Route::get('/',"FranchiseController@index")->name('franchiseIndex');
+    Route::get('recherche/name={name}',"FranchiseController@searchByName");
+    Route::get('recherche/secteur={secteur}',"FranchiseController@searchBySecteur")->name('franchiseSecteur');
+    Route::get('recherche/apport={apport}',"FranchiseController@searchByApport");
+    Route::get('recherche/secteur={secteur}/apport={apport}',"FranchiseController@searchByApportAndSecteur");
+
+    Route::get('item/{categorie}/{id}-{name?}',"FranchiseController@singleFranchise")->name('singleFranchise');
+    Route::get('{categorie?}',"FranchiseController@categoriePage");
 });
 
 Route::group(['prefix' => 'admin'], function () {
