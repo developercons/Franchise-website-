@@ -39,7 +39,28 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
+        $this->mapCandidatRoutes();
+
         //
+    }
+
+    /**
+     * Define the "candidat" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapCandidatRoutes()
+    {
+        Route::group([
+            'middleware' => ['web', 'candidat', 'auth:candidat'],
+            'prefix' => 'candidatheque/candidat',
+            'as' => 'candidat.',
+            'namespace' => $this->namespace,
+        ], function ($router) {
+            require base_path('routes/candidat.php');
+        });
     }
 
     /**

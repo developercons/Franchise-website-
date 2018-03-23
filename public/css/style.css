@@ -20,7 +20,7 @@
 }
 
 .bg-secondary{
-    background-color: #2F587C !important;
+    background: linear-gradient(to left,#3372AA,#5a96cc);
 }
 
 .fc-nav-langue-dropdown a{
@@ -129,6 +129,9 @@ a.waves-light.btn-request-complet{
     overflow-y: scroll;
 }
 
+.hide{
+    display: none;
+}
 footer{
     margin-top: 50px;
     padding: 50px 0;

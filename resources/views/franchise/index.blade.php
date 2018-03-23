@@ -81,7 +81,11 @@
                                                         'name'=>  str_replace( ' ' , '-' ,$item->name)])
                                                     }}" 
                                               class="btn btn-primary">voir la fiche enseigne</a>
-                                            <button type="button" class="btn btn-warning">DEMANDER UNE DOCUMENTATION</button>
+                                                <button type="button" class="btn btn-warning btn-add-request" 
+                                                        data-id="{{$item->id}}"
+                                                        data-name="{{$item->name}}" >
+                                                    DEMANDER UNE DOCUMENTATION
+                                                </button>
                                     </div>
                                 </div>
                             </div>

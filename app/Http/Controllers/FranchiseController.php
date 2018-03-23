@@ -7,7 +7,7 @@ use App\Franchise;
 use App\Subcategory;
 use App\Category;
 use Response;
-
+use Session;
 
 class FranchiseController extends Controller
 {
@@ -17,6 +17,9 @@ class FranchiseController extends Controller
         ]);
     }
 
+    public function demandeIndex(){
+        return view('franchise.request');
+    }
     public function singleFranchise($categorie,$id){
         $franchise = Franchise::find($id);
         $subcategory = $franchise->subcategory()->first();
@@ -80,8 +83,25 @@ class FranchiseController extends Controller
             ]);
     }
     
-    public function addFranchise(Request $request){
-         $request->session()->get('franchiseList', '');
-         
+    public function addRequestFranchise(Request $request){
+      if($request->ajax()){
+        $request->session()->put('franchiseList', $request->requestedItem);
+        return   response( $request->session()->get('franchiseList'), 200)
+                ->header('Content-Type', 'application/json'); 
+      }  
+    }
+
+    public function removeRequestFranchise(Request $request){
+        if($request->ajax()){
+            $franchiseList = $request->session()->get('franchiseList',[]);
+            foreach ($franchiseList as $key => $value) {
+                if($value["id"] == $request->id){
+                    unset($franchiseList[$key]);
+                }
+            }
+            $request->session()->put('franchiseList', array_values($franchiseList));
+            return  response($request->session()->get('franchiseList') , 200)
+                ->header('Content-Type', 'application/json');
+        }
     }
 }

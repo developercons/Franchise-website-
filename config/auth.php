@@ -36,6 +36,11 @@ return [
     */
 
     'guards' => [
+        'candidat' => [
+            'driver' => 'session',
+            'provider' => 'candidats',
+        ],
+
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
@@ -65,6 +70,11 @@ return [
     */
 
     'providers' => [
+        'candidats' => [
+            'driver' => 'eloquent',
+            'model' => App\Candidat::class,
+        ],
+
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
@@ -92,6 +102,12 @@ return [
     */
 
     'passwords' => [
+        'candidats' => [
+            'provider' => 'candidats',
+            'table' => 'candidat_password_resets',
+            'expire' => 60,
+        ],
+
         'users' => [
             'provider' => 'users',
             'table' => 'password_resets',
