@@ -82,3 +82,31 @@ footer h4::after{
     left: 0;
     background: white;
 }
+
+
+button.btn-primary{
+    background: linear-gradient(to left,#3372AA,#5a96cc);
+}
+
+.panel-heading h2 , .link-inscription a{
+    color: #4583ba !important;
+}
+.text-montserrat{
+    font-family: montserrat;
+}
+.remember{
+    font-size: 15px;
+}
+
+.fc-candidat-login p{
+    font-size: 16px;
+}
+.lead{
+    color: #707b84;
+}
+
+.error {
+    color: #f54242;
+    font-weight: lighter;
+    font-size: 15px;
+}

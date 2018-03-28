@@ -9,8 +9,8 @@
          <div class="container">
             <div class="fc-item-list row">
                 <div  class="item"><a href="/">Accueil</a></div>
-                <div class="item"><a href="">{{$category->name}} </a></div>
-                <div class="item"><a href="">{{$subcategory->name}}</a></div>
+                <div class="item"><a href="{{route('franchiseSecteur',['secteur' => $subcategory->name])}} ">{{$category->name}} </a></div>
+                <div class="item"><a href="{{route('franchiseSecteur',['secteur' => $subcategory->name])}} ">{{$subcategory->name}}</a></div>
             </div>
          </div>
      </div>
@@ -26,7 +26,10 @@
                     </p>
                  </div>
                  <div class="col-md-6 text-right">
-                        <button type="button" class="btn btn-warning">DEMANDER UNE DOCUMENTATION</button>
+                        <button type="button" class="btn btn-warning btn-add-request" 
+                        data-id="{{$franchise->id}}"
+                        data-name="{{$franchise->name}}">
+                        DEMANDER UNE DOCUMENTATION</button>
                  </div>
              </div>
              <div class="row mt-4">

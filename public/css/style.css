@@ -168,3 +168,7 @@ footer h4::after{
     left: 0;
     background: white;
 }
+
+.color-primary{
+    color: #4285f4;
+}

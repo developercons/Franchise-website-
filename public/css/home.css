@@ -53,7 +53,7 @@
     font-weight: normal;
     color: white;
 }
-.fc-search-bar .col-md-3{
+.fc-search-bar .col-md-3 , .fc-search-bar .col-md-4 , .fc-search-bar .col-md-2{
     padding: 0;
     margin: 0;
 }
@@ -175,4 +175,8 @@
     height: 150px;
     width: 150px !important;
     margin: 0 auto;
+}
+
+.small{
+    font-size: 13px;
 }

@@ -19,6 +19,7 @@
                 <div class="col-md-3">
                     <select class="form-control fc-select-secteur">
                         <option value="" disabled selected>Choisir un secteur d'activité</option>
+                        <option value="all_categories" >Tous les secteurs</option>
                         @foreach ($secteurs as $item)
                             <optgroup  label="{{$item->name}}">
                                 @foreach($item->subcategory()->get() as $subcategory)
@@ -40,7 +41,7 @@
                             <option value="20000">jusqu'a 20 000 €</option>
                             <option value="30000">jusqu'a 30 000 €</option>
                             <option value="50000">jusqu'a 50 000 €</option>
-                            <option value="8000">jusqu'a 80 000 €</option>
+                            <option value="80000">jusqu'a 80 000 €</option>
                             <option value="100000">jusqu'a 100 000 €</option>
                             <option value="150000">jusqu'a 150 000 €</option>
                             <option value="200000">jusqu'a 200 000 €</option>
@@ -61,17 +62,23 @@
                             <div class="card w-100 p-4">
                                 <div class="row">
                                     <div class="col-md-8">
+                                        
                                         <div class="d-flex">
-                                            <img src="{{Voyager::image($item->image)}}" class="img-fluid">
-                                        <div class="fc-item-info ml-4">
-                                                <h3>{{$item->name}} </h3>
-                                                <p class="lead">
-                                                    {{$item->short_description}}
-                                                </p>
-                                                <p>
-                                                     APPORT PERSONNEL {{$item->apport_personnel}} €
-                                                </p>
-                                        </div>
+                                            <div class="fc-thumbnails">
+                                                 <img src="{{Voyager::image($item->image)}}" class="img-fluid">
+                                            </div>
+                                            <div class="fc-item-info ml-4">
+                                                    <h3 class="m-0">{{$item->name}} </h3>
+                                                    <p class="lead small p-0 mb-2 color-primary">
+                                                        {{$item->subcategory()->first()->name}}
+                                                    </p>
+                                                    <p class="lead">
+                                                        {{$item->short_description}}
+                                                    </p>
+                                                    <p>
+                                                        APPORT PERSONNEL {{$item->apport_personnel}} €
+                                                    </p>
+                                            </div>
                                         </div>
                                     </div> 
                                     <div class="col-md-4 fc-btns-item">
@@ -133,6 +140,7 @@
 
         if( $(".fc-search-name").val() ){
             $url = $url + "/recherche/name=" + $(".fc-search-name").val();
+            return $url;
         }
 
         if($(".fc-select-secteur").val()){

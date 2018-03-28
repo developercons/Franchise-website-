@@ -1,6 +1,6 @@
 <?php
 
-Route::get('/home', function () {
+Route::get('/', function () {
     $users[] = Auth::user();
     $users[] = Auth::guard()->user();
     $users[] = Auth::guard('candidat')->user();

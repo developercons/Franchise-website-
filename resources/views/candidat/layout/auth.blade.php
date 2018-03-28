@@ -1,2 +1,0 @@
-{{Auth::logout()}}
-@yield('content')

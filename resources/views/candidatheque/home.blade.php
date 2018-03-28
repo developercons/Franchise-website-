@@ -20,7 +20,7 @@
                                         <p>Vous avez un projet de création d'entreprise ?</p>
                                         Déposez votre profil et soyez visible auprès de plus de 3 000 franchiseurs.
                                     </p>
-                                    <a href="#" class="btn btn-warning">Je dépose mon profil</a>
+                                    <a href="{{url('candidatheque/candidat/login')}}" class="btn btn-warning">Je dépose mon profil</a>
                                 </div>
                             </div>
                             <div class="col-md-6 card card-franchise ">

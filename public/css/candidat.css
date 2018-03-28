@@ -1,0 +1,83 @@
+.fc-profile-user{
+    background-image: url(http://localhost:8000/img/11452.jpg);
+    height: 150px;
+    width: 150px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 100%;
+    margin: 0 auto;
+}
+.card{
+    padding: 20px;
+}
+.card-body{
+    text-align: center;
+}
+.card-edit {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 18px;
+}
+.fc-personal-info h6{
+    color: rgb(112, 111, 129);
+}
+.fc-personal-info p{
+    padding: 0;
+    margin: 0;
+}
+#circle {
+    width: 100%;
+    position: relative;
+  }
+  
+
+#circle .value {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 30px;
+    color: #C9D6FF;
+  }
+
+  .card-blue{
+      background: linear-gradient(to left,#667db6,#0082c8);
+      color: #C9D6FF;
+  }
+  .card-orange{
+    background: linear-gradient(to left,#fbb68c,#e9748e);
+    color: white;
+  }
+
+  .chip{
+    display: inline-block;
+    height: 32px;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(0,0,0,.6);
+    line-height: 32px;
+    padding: 0 12px;
+    border-radius: 16px;
+    background-color: #eceff1;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+  }
+
+  .fc-title{
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #7d8b98;
+    font-weight: lighter;
+    font-family: montserrat;
+    margin-left: 16px;
+    margin-bottom: 40px;
+  }
+  .card-profile{
+    background: linear-gradient(to left,#e9ecf5,#fdf9f9);
+    color: #708490;
+  }

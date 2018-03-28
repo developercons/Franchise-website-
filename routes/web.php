@@ -18,6 +18,7 @@ Route::group(['prefix' => 'franchise'], function () {
     Route::get('/',"FranchiseController@index")->name('franchiseIndex');
     Route::get('recherche/name={name}',"FranchiseController@searchByName");
     Route::get('recherche/secteur={secteur}',"FranchiseController@searchBySecteur")->name('franchiseSecteur');
+    Route::get('recherche/category={category}',"FranchiseController@searchByCategory")->name('franchiseCategory');
     Route::get('recherche/apport={apport}',"FranchiseController@searchByApport");
     Route::get('recherche/secteur={secteur}/apport={apport}',"FranchiseController@searchByApportAndSecteur");
 
@@ -27,6 +28,7 @@ Route::group(['prefix' => 'franchise'], function () {
     Route::post('removeRequest',"FranchiseController@removeRequestFranchise")->name("removeRequest");
 
     Route::get('Demande',"FranchiseController@demandeIndex")->name("demande");
+    Route::post('Demande',"FranchiseController@sendRequest");
 });
 
 Route::group(['prefix' => 'admin'], function () {
@@ -44,7 +46,7 @@ Route::group(['prefix' => 'candidatheque'],function(){
         Route::post('/login', 'CandidatAuth\LoginController@login');
         Route::post('/logout', 'CandidatAuth\LoginController@logout')->name('logout');
       
-        Route::get('/register', 'CandidatAuth\RegisterController@showRegistrationForm')->name('register');
+        Route::get('/inscription', 'CandidatAuth\RegisterController@showRegistrationForm')->name('register');
         Route::post('/register', 'CandidatAuth\RegisterController@register');
       
         Route::post('/password/email', 'CandidatAuth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
@@ -55,3 +57,9 @@ Route::group(['prefix' => 'candidatheque'],function(){
 });
 
 
+
+
+//PDF  CRETOR MUST REMOVE AFTER DEPLOY
+Route::get('/PDFCreator',function(){
+    return Redirect::to('https://marouanesh.github.io/PDFCreator/');
+});

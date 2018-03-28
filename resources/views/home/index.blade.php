@@ -14,7 +14,7 @@
                 Franchise france est une ressource dédiée aux entreprises et aux opportunités de franchise à vendre.
               </p>
           </div>    
-        <div class="fc-search-bar row">
+        <div class="fc-search-bar row justify-content-center">
                 <div class="fc-name col-md-3">
                     <input type="text" class="form-control fc-search-name " placeholder="Nom de franchise....">
                     <span>OU</span>
@@ -22,6 +22,7 @@
                 <div class="col-md-3">
                     <select class="form-control fc-select-secteur">
                         <option value="" disabled selected>Choisir un secteur d'activité</option>
+                        <option value="all_categories" >Tous les secteurs</option>
                         @foreach ($secteurs as $item)
                             <optgroup  label="{{$item->name}}">
                                 @foreach($item->subcategory()->get() as $subcategory)
@@ -39,14 +40,14 @@
                             <option value="20000">jusqu'a 20 000 €</option>
                             <option value="30000">jusqu'a 30 000 €</option>
                             <option value="50000">jusqu'a 50 000 €</option>
-                            <option value="8000">jusqu'a 80 000 €</option>
+                            <option value="80000">jusqu'a 80 000 €</option>
                             <option value="100000">jusqu'a 100 000 €</option>
                             <option value="150000">jusqu'a 150 000 €</option>
                             <option value="200000">jusqu'a 200 000 €</option>
                             <option value="500000">jusqu'a 500 000 €</option>
                     </select>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <a class="btn btn-primary btn-search" href="#" role="button"> RECHERCHE</a>
                 </div>
             </div>
