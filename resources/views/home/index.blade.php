@@ -62,7 +62,7 @@
                     @foreach ($franchies as $franchie)
                         <div>
                             <a href="{{ route('singleFranchise', [
-                                        'categorie'=> str_replace( ' ' , '-' , $franchie->subcategory()->first()->name) ,
+                                        'categorie'=> str_replace(' ' , '-' , $franchie->subcategory()->first()->name) ,
                                         'id'=> $franchie->id,
                                         'name'=>  str_replace( ' ' , '-' ,$franchie->name)])
                                     }}">
@@ -90,104 +90,29 @@
                             <div class="card p-5 mt-4 text-center">
                                 <img src="{{Voyager::image($secteur->image)}}" class="mx-auto">
                                  <p class="fc-name mt-2">{{$secteur->name}}</p>
-                                <a href="{{route('franchiseSecteur' , ["secteur" => $secteur->name])}} " class="btn btn-outline-primary waves-effect">
+                                <a href="{{route('franchiseCategory' , ["category" => str_replace( ' ' , '-' ,$secteur->name)])}} " class="btn btn-outline-primary waves-effect">
                                     Découvrir
                                 </a>
                             </div>
                         </div>
                   @endforeach
-                    {{--  <div class="col-md-4">
-                        <div class="card p-4 text-center">
-                            <img src="{{asset('img/secteur/dashboard.png')}}" class="mx-auto">
-                            <p class="fc-name mt-2">Franchises Auto-Moto-Bateau </p>
-                            <a href="" class="btn btn-outline-primary waves-effect">Découvrir</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card p-4 text-center">
-                            <img src="{{asset('img/secteur/skyline.png')}}" class="mx-auto">
-                            <p class="fc-name mt-2">Franchises de Bâtiment</p>
-                            <a href="" class="btn btn-outline-primary waves-effect">Découvrir</a>
-                        </div>
-                    </div>  --}}
                 </div>
-                {{--  <div class="row mt-3">
-                    <div class="col-md-4">
-                        <div class="card p-4 text-center">
-                            <img src="{{asset('img/secteur/house.png')}}" class="mx-auto">
-                            <p class="fc-name mt-2">Franchises de l'Habitat</p>
-                            <a href="" class="btn btn-outline-primary waves-effect">Découvrir</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card p-4 text-center">
-                            <img src="{{asset('img/secteur/store.png')}}" class="mx-auto">
-                            <p class="fc-name mt-2">Franchises de Magasin </p>
-                            <a href="" class="btn btn-outline-primary waves-effect">Découvrir</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card p-4 text-center">
-                            <img src="{{asset('img/secteur/armchair.png')}}" class="mx-auto">
-                            <p class="fc-name mt-2">Franchises Décoration-meuble</p>
-                            <a href="" class="btn btn-outline-primary waves-effect">Découvrir</a>
-                        </div>
-                    </div>
-                </div>  --}}
-                {{--  <div class="row mt-3">
-                    <div class="col-md-4">
-                        <div class="card p-4 text-center">
-                            <img src="{{asset('img/secteur/tree.png')}}" class="mx-auto">
-                            <p class="fc-name mt-2">Franchises Ecologie-Environnement</p>
-                            <a href="" class="btn btn-outline-primary waves-effect">Découvrir</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card p-4 text-center">
-                            <img src="{{asset('img/secteur/key.png')}}" class="mx-auto">
-                            <p class="fc-name mt-2">Franchises Immobilières </p>
-                            <a href="" class="btn btn-outline-primary waves-effect">Découvrir</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card p-4 text-center">
-                            <img src="{{asset('img/secteur/food.png')}}" class="mx-auto">
-                            <p class="fc-name mt-2">Franchises Restauration</p>
-                            <a href="" class="btn btn-outline-primary waves-effect">Découvrir</a>
-                        </div>
-                    </div>
-                </div>  --}}
-                {{--  <div class="row mt-3">
-                    <div class="col-md-4">
-                        <div class="card p-4 text-center">
-                            <img src="{{asset('img/secteur/company.png')}}" class="mx-auto">
-                            <p class="fc-name mt-2">Franchises Services entreprises</p>
-                            <a href="" class="btn btn-outline-primary waves-effect">Découvrir</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card p-4 text-center">
-                            <img src="{{asset('img/secteur/science.png')}}" class="mx-auto">
-                            <p class="fc-name mt-2">Franchises Technologie - Informatique </p>
-                            <a href="" class="btn btn-outline-primary waves-effect">Découvrir</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card p-4 text-center">
-                            <img src="{{asset('img/secteur/handshake.png')}}" class="mx-auto">
-                            <p class="fc-name mt-2">Franchises Services aux particuliers</p>
-                            <a href="" class="btn btn-outline-primary waves-effect">Découvrir</a>
-                        </div>
-                    </div>
-                </div>  --}}
         </div>
+    </div>
+
+    <div class="fc-candidatheque-content mt-5">
+        <div class="bg-candidatheque" style="background-image:url('{{asset('img/bg-candidat.jpg')}}')"></div>
+        <div class="container p-5 text-white text-center my-5">
+            <h1>REJOIGNEZ LA PLUS GRANDE CANDIDATHÈQUE DÉDIÉE À LA FRANCHISE</h1>
+            <a href="{{route('candidatheque')}} " class="btn btn-warning mt-5">Rejoignez nous </a>
+        </div
     </div>
     <div class="fc-blog mt-5">
         <div class="container">
-            <h3 class=" text-center fc-section-title">
+            <h3 class=" text-center fc-section-title mt-5">
                  ACTUALITÉS DE NOS RÉSEAUX DE FRANCHISE
             </h3>
-            <div class="row mt-5">
+            <div class="row mt-2">
                 <div id="customNav" class="owl-nav"></div>
                 <div class="owl-carousel fc-blog-article">
                      <div class="card p-3">

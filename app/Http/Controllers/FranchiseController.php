@@ -8,11 +8,17 @@ use App\Subcategory;
 use App\Category;
 use Response;
 use Session;
+use App\Mail\sendRequestMail;
+use Mail;
+use Cache;
 
 
 class FranchiseController extends Controller
 {
     public function index(Request $request){
+        
+        Mail::to("marouanesouah@gmail.com")->send(new sendRequestMail());
+        return "success";
         return view('franchise.index',[
             "franchies" => Franchise::all(),
         ]);
@@ -63,10 +69,26 @@ class FranchiseController extends Controller
 
     public function searchByCategory($category){
         $category = str_replace('-', ' ' , $category);
-        return Category::where('name', '=' , $category)->subcategory->get();
+        $subcategory = Category::where('name', '=' , $category)->first();
+        if($subcategory){
+            $subcategory = $subcategory->subcategory()->get();
+        }
+        else {
+            abort(404);
+        }
+        $franchise = [];
+        foreach ($subcategory as $key => $subcat) {
+            if($subcat->franchise()->first())
+            {
+                $franchise[] = $subcat->franchise()->first();
+            }
+        } 
+
         return view('franchise.index',[
-            "franchies" => Category::where('name', '=' , $category)->subcategory->get()
+            "franchies" => collect($franchise)
         ]); 
+
+       
     }
 
     public function searchBySecteur($secteur){

@@ -172,3 +172,7 @@ footer h4::after{
 .color-primary{
     color: #4285f4;
 }
+
+.small-p{
+    font-size: 15px;
+}

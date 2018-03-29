@@ -19,7 +19,7 @@ Route::group(['prefix' => 'franchise'], function () {
     Route::get('recherche/name={name}',"FranchiseController@searchByName");
     Route::get('recherche/secteur={secteur}',"FranchiseController@searchBySecteur")->name('franchiseSecteur');
     Route::get('recherche/category={category}',"FranchiseController@searchByCategory")->name('franchiseCategory');
-    Route::get('recherche/apport={apport}',"FranchiseController@searchByApport");
+    Route::get('recherche/apport={apport}',"FranchiseController@searchByApport")->name("searchApport");
     Route::get('recherche/secteur={secteur}/apport={apport}',"FranchiseController@searchByApportAndSecteur");
 
     Route::get('item/{categorie}/{id}-{name?}',"FranchiseController@singleFranchise")->name('singleFranchise');
@@ -39,7 +39,7 @@ Route::group(['prefix' => 'admin'], function () {
 //Candidatheque Routes
 Route::group(['prefix' => 'candidatheque'],function(){
 
-    Route::get('/','CandidathequeController@index');
+    Route::get('/','CandidathequeController@index')->name('candidatheque');
     //Candidat Routes
     Route::group(['prefix' => 'candidat'], function () {
         Route::get('/login', 'CandidatAuth\LoginController@showLoginForm')->name('login');
@@ -57,6 +57,13 @@ Route::group(['prefix' => 'candidatheque'],function(){
 });
 
 
+//Pages Routes
+Route::group(['prefix' => 'pages'] , function(){
+    Route::get('/tout-savoir-franchise', function(){ return view('pages.comprendre-franchise'); })->name('pageAll');
+    Route::get('/par-ou-commencer', function(){ return view('pages.par-ou-commencer'); })->name('pageParOuCommencer');
+    Route::get('/choisir-franchise', function(){ return view('pages.choisir-franchise'); })->name('pageChoisirFranchise');
+
+});
 
 
 //PDF  CRETOR MUST REMOVE AFTER DEPLOY
