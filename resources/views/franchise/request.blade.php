@@ -30,6 +30,11 @@
             <div class="row mt-5">
                 <form class="form-horizontal col-12 card p-5" role="form" method="POST" action="{{ url('franchise/Demande') }}">
                     {{ csrf_field() }}
+                    @if(count($errors) > 0)
+                     <span class="error">
+                        Veuillez remplir tous les champs
+                     </span>
+                    @endif
                     <p class="lead small m-0 mb-2">
                     Les franchiseurs, responsables du développement sont attentifs à la qualité de votre candidature : soyez clairs, motivez votre projet et renseignez bien les champs demandés.
                     </p>
@@ -128,7 +133,7 @@
                         @endif
                     </div>
                     <div class=" form-group ">
-                            <label for="select">Secteur géographique souhaité * </label>
+                            <label for="select">Apport personnel * </label>
                             <select class="form-control" name="apport_select" id="" value="{{old('apport_select')}}">
                                     <option value="" disabled selected>Apport personnel</option>
                                     <option value="5000">jusqu'a 5 000 €</option>
@@ -162,13 +167,20 @@
                           @endif
                       </div>
                       <div class="md-form">
-                            <textarea type="text" id="form7" name="txt-parcours" class="md-textarea form-control" rows="3" value="{{old('txt-parcours')}}"></textarea>
+                            <textarea type="text" id="form7" name="txt_parcours" class="md-textarea form-control" rows="3" value="{{old('txt-parcours')}}"></textarea>
                             <label for="form7">Votre parcours, votre projet* </label>
                             @if ($errors->has('txt-parcours'))
                               <span class="help-block error">
-                                  <strong>{{ $errors->first('txt-parcours') }}</strong>
+                                  <strong>{{ $errors->first('txt_parcours') }}</strong>
                               </span>
                           @endif
+                     </div>
+                     <div class="list-franchise-request">
+                          
+                         @foreach (Session::get("franchiseList") as $franchise)
+                           <input type="hidden" value="{{$franchise['id']}} " name="franchiseID[]">
+                           <input type="hidden" value="{{$franchise['name']}} " name="franchiseName[]">
+                         @endforeach
                      </div>
                     <div class="form-group text-right">
                             <button type="submit" class="btn btn-primary">

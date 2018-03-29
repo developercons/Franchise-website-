@@ -11,14 +11,12 @@ use Session;
 use App\Mail\sendRequestMail;
 use Mail;
 use Cache;
-
+use App\Demande;
 
 class FranchiseController extends Controller
 {
     public function index(Request $request){
-        
-        Mail::to("marouanesouah@gmail.com")->send(new sendRequestMail());
-        return "success";
+    
         return view('franchise.index',[
             "franchies" => Franchise::all(),
         ]);
@@ -41,8 +39,34 @@ class FranchiseController extends Controller
             'secteur' => 'required|max:255',
             'apport_select' => 'required|max:255',
             'avance_projet_select' => 'required|max:255',
-            'txt-parcours' => 'required|max:255',
+            'txt_parcours' => 'required|max:255',
+            'franchiseID' => 'present|array',
+            'franchiseName' => 'present|array',
         ]);
+
+       //return $request->ev_select;
+        $demande = Demande::create([
+            'ev_select' =>  $request->ev_select,
+            'nom' => $request->nom,
+            'prenom' => $request->prenom,
+            'address' => $request->address,
+            'postal' => $request->postal,
+            'ville' => $request->ville,
+            'telephone' => $request->telephone,
+            'email' =>  $request->email,
+            'secteur' => $request->secteur,
+            'apport_select' => $request->apport_select,
+            'avance_projet_select' => $request->avance_projet_select,
+            'txt_parcours' => $request->txt_parcours,
+            'franchiseID' => implode("-",$request->franchiseID),
+            'franchiseName' => implode("-",$request->franchiseName),
+        ]);
+         
+        
+        Mail::to("marouanesouah@gmail.com")->send(new sendRequestMail($demande));
+        $request->session()->forget('franchiseList');
+        
+        return view('franchise.requestSucess');
     }
 
     public function singleFranchise($categorie,$id){

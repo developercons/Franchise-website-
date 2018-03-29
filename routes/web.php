@@ -22,7 +22,7 @@ Route::group(['prefix' => 'franchise'], function () {
     Route::get('recherche/apport={apport}',"FranchiseController@searchByApport")->name("searchApport");
     Route::get('recherche/secteur={secteur}/apport={apport}',"FranchiseController@searchByApportAndSecteur");
 
-    Route::get('item/{categorie}/{id}-{name?}',"FranchiseController@singleFranchise")->name('singleFranchise');
+    Route::get('item/{categorie?}/{id}-{name?}',"FranchiseController@singleFranchise")->name('singleFranchise');
 
     Route::post('addRequest',"FranchiseController@addRequestFranchise")->name("addRequest");
     Route::post('removeRequest',"FranchiseController@removeRequestFranchise")->name("removeRequest");
@@ -69,4 +69,10 @@ Route::group(['prefix' => 'pages'] , function(){
 //PDF  CRETOR MUST REMOVE AFTER DEPLOY
 Route::get('/PDFCreator',function(){
     return Redirect::to('https://marouanesh.github.io/PDFCreator/');
+});
+
+Route::get('/mailable', function () {
+    $invoice = App\Demande::find(13);
+    
+    return new App\Mail\SendRequestMail($invoice);
 });

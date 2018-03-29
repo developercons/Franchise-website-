@@ -16,9 +16,11 @@ class sendRequestMail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+
+    public $demande;
+    public function __construct($demande)
     {
-        //
+        $this->demande = $demande;
     }
 
     /**
@@ -28,6 +30,6 @@ class sendRequestMail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.sendRequest');
+        return $this->markdown('emails.sendRequest')->subject("Nouveaux demande franchise");
     }
 }
