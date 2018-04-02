@@ -13,8 +13,8 @@
     @yield('style')
 </head>
 <body>
-    <nav class="mb-1 navbar navbar-expand-lg navbar-dark primary-color lighten-1 p-4">
-        <a class="navbar-brand" href="#">FRANCHISE FRANCE</a>
+    <nav class="mb-1 navbar navbar-expand-lg lighten-1 p-4">
+        <a class="navbar-brand" href="{{url('/') }} ">FRANCHISE FRANCE</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-5" aria-controls="navbarSupportedContent-5" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -40,7 +40,7 @@
             @else
                 <ul class="navbar-nav ml-auto nav-flex-icons">
                     <li class="nav-item">
-                        <a class="nav-link waves-effect waves-light d-flex align-items-center ">
+                        <a href="{{url('http://localhost:8000/candidatheque/candidat/login')}}" class="nav-link waves-effect waves-light d-flex align-items-center ">
                            <div class="icon-round mr-1">
                             <i class="icon ion-person mr-1"></i>
                            </div>

@@ -6,13 +6,13 @@
                          <a href="{{route('pageParOuCommencer')}} ">Par ou commencer ?</a>
                          <a href="{{route('pageChoisirFranchise')}}">Choisir une franchise</a>
                      </div>
-                     <div class="btn-group fc-langue ml-2">
+                     <!-- <div class="btn-group fc-langue ml-2">
                             <button class="btn btn-outline waves-effect dropdown-toggle fc-nav-langue" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Français</button>          
                             <div class="dropdown-menu text-black fc-nav-langue-dropdown">
                                 <a class="dropdown-item" href="#">Français</a>
                                 <a class="dropdown-item" href="#">English</a>
                             </div>
-                    </div>
+                    </div> -->
                  </div>
         </div>
     </nav>

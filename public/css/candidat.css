@@ -1,3 +1,10 @@
+.navbar{
+  background: white;
+}
+.navbar-brand{
+  color: black;
+  font-weight: normal;
+}
 .fc-profile-user{
     background-image: url(http://localhost:8000/img/11452.jpg);
     height: 150px;
@@ -80,4 +87,57 @@
   .card-profile{
     background: linear-gradient(to left,#e9ecf5,#fdf9f9);
     color: #708490;
+  }
+
+  .loading{
+    position: fixed;
+    z-index: 50;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #4b4f5657;
+    height: 100%;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    font-size: 25px;
+    display: none;
+    padding-top: 80px;
+    text-align: center;
+  }
+
+  .fc-success-dialog{
+    position: fixed;
+    bottom: 0;
+    width: 70%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background: #02c050eb;
+    z-index: 10;
+    color: white;
+    padding-top: 13px;
+    text-transform: uppercase;
+    display: none;
+
+  }
+
+  .fc-error-dialog{
+    background:#f44336;
+    position: fixed;
+    bottom: 0;
+    width: 70%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 10;
+    color: white;
+    padding-top: 13px;
+    text-transform: uppercase;
+    display: none;
   }

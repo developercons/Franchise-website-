@@ -12,6 +12,7 @@
 */
 
 Route::get('/',"HomeController@index");
+Route::get('/Accueil',"HomeController@home");
 
 
 Route::group(['prefix' => 'franchise'], function () {
@@ -53,7 +54,10 @@ Route::group(['prefix' => 'candidatheque'],function(){
         Route::post('/password/reset', 'CandidatAuth\ResetPasswordController@reset')->name('password.email');
         Route::get('/password/reset', 'CandidatAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
         Route::get('/password/reset/{token}', 'CandidatAuth\ResetPasswordController@showResetForm');
-      });
+      
+        Route::get('/modify', 'CandidatController@modifyPage')->name('candidatModifyPage');
+        Route::post('/modifyCandidat', 'CandidatController@modifyCandidat')->name('modifyCandidat');
+    });
 });
 
 

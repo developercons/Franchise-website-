@@ -131,6 +131,52 @@
              </div>
          </div>
      </div>
+      
+    @if($franchise->CONCEPT)
+            <div class="container mt-5 fc-tabs">
+                <ul class="nav nav-tabs nav-justified indigo mt-4" id="fc-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-target="concept" role="tab">
+                        <i class="fa fa-user"></i> CONCEPT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-target="caracterstique" role="tab">
+                        <i class="fa fa-heart"></i> Caractéristiques</a>
+                    </li>
+                </ul>
+            
+                <div class="tab-content">
+                    <div class="tab-pane fade in show active" id="concept" role="tabpanel">
+                        <div class="p-3">
+                            {!! $franchise->CONCEPT !!}
+                        </div>
+            
+                    </div>
+            
+                    <div class="tab-pane fade" id="caracterstique" role="tabpanel">
+                        <div class="p-3">
+                            {!! $franchise->caracteristique !!}
+                        </div>
+                    </div>
+            
+                </div>
+            </div>
+    @endif
+    
 
-     {!! $franchise->CONCEPT !!}
+     
+@endsection
+
+@section('script')
+
+<script>
+    $('#fc-tabs a').click(function (e) {
+        e.preventDefault();
+        $('#fc-tabs a').removeClass("show active");
+        $(this).addClass("show active");
+        $target = $(this).data('target');
+        $(".tab-pane").removeClass("show active");
+        $("#"+$target).addClass("show active");
+    })
+</script>
 @endsection

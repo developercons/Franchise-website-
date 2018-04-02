@@ -3,11 +3,17 @@
 @section('style')
     <link rel="stylesheet" href= "{{ asset('css/select2.min.css') }}">
     <link rel="stylesheet" href= "{{ asset('css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href= "{{ asset('css/vegas.min.css') }}">
     <link rel="stylesheet" href= "{{ asset('css/home.css') }}">
 @endsection
 @section('content')
+
+    <div id="fc-bg-video-wrapper" style="height:500px;background-image: url('{{asset('img/bg.jpg')}}')">
+        <div  id="fc-bg-video" style="height:100%"></div>
+    </div>
     <div class="fc-bg-wrapper">
-          <div class="fc-background" style="background: url('{{ asset('img/bg.jpg') }}')"></div>
+        
+          <!-- <div class="fc-background" style="background: url('{{ asset('img/bg.jpg') }}')"></div> -->
           <div class="fc-title">
               <h3>Franchise france </h3>
               <p>
@@ -50,6 +56,11 @@
                 <div class="col-md-2">
                     <a class="btn btn-primary btn-search" href="#" role="button"> RECHERCHE</a>
                 </div>
+            </div>
+            <div class="fc-bg-choose text-center container text-white">
+                    <h5 class="mt-3">Vous êtes ?</h5>
+                    <a href="{{url('candidatheque/candidat/login')}} " class="btn  waves-effect waves-light mt-0">Candidat </a>
+                    <a href="" class="btn  waves-effect waves-light mt-0">Franchiseur </a>
             </div>
     </div>  
     <div class="fc-features">
@@ -257,9 +268,22 @@
 @endsection
 
 @section('script')
+    <script src="{{asset('js/vegas.min.js')}} "></script>
     <script src="{{ asset('js/select2.min.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+    
     <script>
+        $("#fc-bg-video").vegas({
+                slides: [
+                    { src: "{{asset('img/bg.jpg')}} " ,delay: 6500, video: [
+                        "{{asset('video/coverateliergourmand22.mp4')}}"
+                    ]},
+                    { src: "{{asset('img/bg.jpg')}} " ,delay: 6500, video: [
+                        "{{asset('video/coverateliergourmand21.mp4')}}"
+                    ]},
+                ]
+         });
+
          $(document).ready(function() {
              //Select
             $('.fc-select-secteur').select2({
