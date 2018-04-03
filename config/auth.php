@@ -36,6 +36,11 @@ return [
     */
 
     'guards' => [
+        'franchiseur' => [
+            'driver' => 'session',
+            'provider' => 'franchiseurs',
+        ],
+
         'candidat' => [
             'driver' => 'session',
             'provider' => 'candidats',
@@ -70,6 +75,11 @@ return [
     */
 
     'providers' => [
+        'franchiseurs' => [
+            'driver' => 'eloquent',
+            'model' => App\Franchiseur::class,
+        ],
+
         'candidats' => [
             'driver' => 'eloquent',
             'model' => App\Candidat::class,
@@ -102,6 +112,12 @@ return [
     */
 
     'passwords' => [
+        'franchiseurs' => [
+            'provider' => 'franchiseurs',
+            'table' => 'franchiseur_password_resets',
+            'expire' => 60,
+        ],
+
         'candidats' => [
             'provider' => 'candidats',
             'table' => 'candidat_password_resets',

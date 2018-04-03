@@ -20,20 +20,21 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent-5">
             @if(Auth::guard('candidat')->check())
-                <ul class="navbar-nav ml-auto nav-flex-icons">
+                <ul class="navbar-nav ml-auto nav-flex-icons align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link waves-effect waves-light">
-                            <i class="fa fa-envelope"></i>
-                        </a>
+                        <a class="nav-link waves-effect waves-light" href="{{url('candidatheque/franchiseur/')}}"><i class="icon ion-android-options"></i> Tableau de bord</a>
                     </li>
                     <li class="nav-item avatar dropdown">
                         <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" width="50px" class="rounded-circle z-depth-0" alt="avatar image">
+                            <img src="{{asset('storage/'.Auth::guard('candidat')->user()->image)}}" width="50px" class="rounded-circle z-depth-0" alt="avatar image">
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-5">
                             <a class="dropdown-item waves-effect waves-light" href="#">Action</a>
                             <a class="dropdown-item waves-effect waves-light" href="#">Another action</a>
-                            <a class="dropdown-item waves-effect waves-light" href="#">Something else here</a>
+                            <form action="{{url('candidatheque/candidat/logout')}}" method="POST">
+                                  {{ csrf_field() }}
+                                   <button type="submit" class="dropdown-item waves-effect waves-light" href="#">Logout</button>
+                            </form>
                         </div>
                     </li>
                 </ul>

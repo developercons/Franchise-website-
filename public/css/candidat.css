@@ -49,17 +49,17 @@
     text-align: center;
     line-height: 40px;
     font-size: 30px;
-    color: #C9D6FF;
+    color: #3877af;
   }
 
-  .card-blue{
+  /* .card-blue{
       background: linear-gradient(to left,#667db6,#0082c8);
       color: #C9D6FF;
   }
   .card-orange{
     background: linear-gradient(to left,#fbb68c,#e9748e);
     color: white;
-  }
+  } */
 
   .chip{
     display: inline-block;
@@ -85,10 +85,12 @@
     margin-bottom: 40px;
   }
   .card-profile{
-    background: linear-gradient(to left,#e9ecf5,#fdf9f9);
+    /* background: linear-gradient(to left,#e9ecf5,#fdf9f9); */
     color: #708490;
   }
-
+ h5 {
+   color:#3877af;
+ }
   .loading{
     position: fixed;
     z-index: 50;
@@ -96,14 +98,15 @@
     left: 0;
     right: 0;
     width: 100%;
-    background: #4b4f5657;
+    background: #ffffffab;
     height: 100%;
     display: block;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    color: white;
+    color: #5995cb;
     font-size: 25px;
+    text-transform: uppercase;
     display: none;
     padding-top: 80px;
     text-align: center;

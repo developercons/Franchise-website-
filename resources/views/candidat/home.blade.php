@@ -23,15 +23,16 @@
                     <i class="icon ion-edit"></i>
                 </div>
                 <div class="card-image">
-                   <div class="fc-profile-user" style="background-image:url({{asset('img/11452.jpg')}})"></div>
+                   <div class="fc-profile-user" style="background-image:url({{asset('storage/'.$candidat->image)}})"></div>
                 </div>
                 <div class="card-body">
-                    <h3 class="text-center">MAROUANE SOUAH</h3>
+                    <h3 class="text-center">{{$candidat->nom . ' ' . $candidat->prenom}} </h3>
                     <div class="fc-personal-info text-center mt-4">
-                        <h6>Information Personnel </h6>
-                        <p>Marouane</p>
-                        <p>06978541</p>
-                        <p>Agadir, Morrocco</p>
+                        <h6>{{$candidat->telephone}} </h6>
+                        <p>{{$candidat->pays}}</p>
+                        <p>{{$candidat->ville}}</p>
+                        <p>{{$candidat->ضdresse}}</p>
+                        <p>{{$candidat->code_postal}}</p>
                     </div>
                     <div class="fc-personal-info text-center mt-4">
                         <h6>Disponibilité</h6>
@@ -48,7 +49,7 @@
                             <option value="fini"    {{ $candidat->status === "fini" ? "selected" : "" }}>J'ai fini mes recherches</option>
                         </select>
                     </div>
-                    <button type="button" class="btn btn-warning mt-3">MODIFIER LE PROFILE</button>
+                    <a href="{{route('candidatModifyPage')}}" class="btn btn-warning mt-3">MODIFIER LE PROFILE</a>
 
                     
                 </div>
@@ -79,7 +80,7 @@
                             <p>
                                     Donnez de la visibilité à votre projet pour être contacté directement par les franchiseurs et échangez sur vos motivations
                             </p>
-                            <button type="button" class="btn btn-warning mt-3">COMPLERER MON PROJET</button> 
+                            <a  href="{{route('candidatProjectPage')}} " class="btn btn-warning mt-3">COMPLERER MON PROJET</a> 
                         </div>
                     </div>
                 </div>
@@ -190,7 +191,7 @@
           value: 0.75,
           size: 200,
           fill: {
-            gradient: ["#C9D6FF", "#C9D6FF"]
+            gradient: ["#3877af", "#3877af"]
           }
         }).on('circle-animation-progress', function(event, progress, stepValue) {
         $(this).children('.value').text((stepValue * 100).toFixed(0) + '%   ');
@@ -201,6 +202,10 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+        @if (Session::has('status'))
+            $(".fc-success-dialog").slideDown();
+            setTimeout(function(){ $(".fc-success-dialog").slideUp(); }, 3500);
+        @endif
 
 </script>
 <script src="{{asset('js/candidat.js')}}"></script>

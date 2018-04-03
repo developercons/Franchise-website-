@@ -37,10 +37,13 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 
+
 //Candidatheque Routes
 Route::group(['prefix' => 'candidatheque'],function(){
 
     Route::get('/','CandidathequeController@index')->name('candidatheque');
+    
+    
     //Candidat Routes
     Route::group(['prefix' => 'candidat'], function () {
         Route::get('/login', 'CandidatAuth\LoginController@showLoginForm')->name('login');
@@ -55,8 +58,40 @@ Route::group(['prefix' => 'candidatheque'],function(){
         Route::get('/password/reset', 'CandidatAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
         Route::get('/password/reset/{token}', 'CandidatAuth\ResetPasswordController@showResetForm');
       
+        //Project page
+          Route::get('/project', 'CandidatController@projectPage')->name('candidatProjectPage');
+          Route::post('/project', 'CandidatController@modifyProjectPage')->name('candidatProjectPage');
+
+        //modfy Page
         Route::get('/modify', 'CandidatController@modifyPage')->name('candidatModifyPage');
+        Route::post('/modify', 'CandidatController@modifyPageCandidat')->name('candidatModifyPage');
+        //modify ajax
         Route::post('/modifyCandidat', 'CandidatController@modifyCandidat')->name('modifyCandidat');
+    });
+
+
+    //Franshiseur Route Group
+    Route::group(['prefix' => 'franchiseur'], function () {
+        Route::get('/login', 'FranchiseurAuth\LoginController@showLoginForm')->name('login');
+        Route::post('/login', 'FranchiseurAuth\LoginController@login');
+        Route::post('/logout', 'FranchiseurAuth\LoginController@logout')->name('logout');
+      
+        Route::get('/inscription', 'FranchiseurAuth\RegisterController@showRegistrationForm')->name('register');
+        Route::post('/inscription', 'FranchiseurAuth\RegisterController@register');
+      
+        Route::post('/password/email', 'FranchiseurAuth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
+        Route::post('/password/reset', 'FranchiseurAuth\ResetPasswordController@reset')->name('password.email');
+        Route::get('/password/reset', 'FranchiseurAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
+        Route::get('/password/reset/{token}', 'FranchiseurAuth\ResetPasswordController@showResetForm');
+   
+        //Add franchsie route
+        Route::get('/ajouterFranchise', 'FranchiseurController@addFranchisePage')->name('addFranchisePage');
+
+        //List candidat route
+        Route::get('/candidats', 'FranchiseurController@candidatPage')->name('franchiseurCandidatPage');
+        Route::get('/candidats/{id}', 'FranchiseurController@singleCandidatPage')->name('singleCandidatPage');
+
+   
     });
 });
 
@@ -80,3 +115,4 @@ Route::get('/mailable', function () {
     
     return new App\Mail\SendRequestMail($invoice);
 });
+

@@ -60,7 +60,7 @@
             <div class="fc-bg-choose text-center container text-white">
                     <h5 class="mt-3">Vous êtes ?</h5>
                     <a href="{{url('candidatheque/candidat/login')}} " class="btn  waves-effect waves-light mt-0">Candidat </a>
-                    <a href="" class="btn  waves-effect waves-light mt-0">Franchiseur </a>
+                    <a href="{{url('candidatheque/franchiseur/login')}}" class="btn  waves-effect waves-light mt-0">Franchiseur </a>
             </div>
     </div>  
     <div class="fc-features">

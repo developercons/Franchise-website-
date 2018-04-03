@@ -39,6 +39,8 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
+        $this->mapFranchiseurRoutes();
+
         $this->mapCandidatRoutes();
 
         //
@@ -60,6 +62,25 @@ class RouteServiceProvider extends ServiceProvider
             'namespace' => $this->namespace,
         ], function ($router) {
             require base_path('routes/candidat.php');
+        });
+    }
+
+    /**
+     * Define the "franchiseur" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapFranchiseurRoutes()
+    {
+        Route::group([
+            'middleware' => ['web', 'franchiseur', 'auth:franchiseur'],
+            'prefix' => 'candidatheque/franchiseur',
+            'as' => 'franchiseur.',
+            'namespace' => $this->namespace,
+        ], function ($router) {
+            require base_path('routes/franchiseur.php');
         });
     }
 

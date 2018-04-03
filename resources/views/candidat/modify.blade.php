@@ -38,11 +38,29 @@
                         <div class="panel-heading ">
                             <h4 class="text-montserrat">Informations générales</h4>
                         </div>
+                        
                         <div class="panel-body">
-                            <form class="form-horizontal" role="form" method="POST" action="{{ url('candidatheque/candidat/login') }}">
+                            <form class="form-horizontal" role="form" method="POST" action="{{ route('candidatModifyPage')}}" enctype="multipart/form-data">
                                 {{ csrf_field() }}
+                                <div class="form-group mt-2">
+                                        <label class="m-0">Image </label>
+                                        <div class="form-control-file">
+                                                <div class="custom-file">
+                                                    <input id="logo" name="image" type="file" class="custom-file-input">
+                                                    <label for="logo" class="custom-file-label">Choose file...</label>
+                                                </div>
+                                        </div>
+                                        @if ($errors->has('image'))
+                                            <span class="help-block error">
+                                                <strong>{{ $errors->first('image') }}</strong>
+                                            </span>
+                                        @endif
+                                        <p class="lead small">
+                                         Format autorisé : JPEG / PNG, poids maxi. 5Mo
+                                        </p>
+                                </div>
                                 <div class="md-form form-group mt-5">
-                                    <input type="text" name="nom" value="{{old('nom')}} "  class="form-control" id="Nom" placeholder="Nom">
+                                    <input type="text" name="nom"  value="{{$candidat->nom}} "  class="form-control" id="Nom" placeholder="Nom">
                                     <label for="Nom">Nom *</label>
                                     @if ($errors->has('nom'))
                                         <span class="help-block error">
@@ -51,7 +69,7 @@
                                     @endif
                                 </div>
                                 <div class="md-form form-group mt-5 ">
-                                    <input type="text" name="prenom" value="{{old('prenom')}} "  class="form-control" id="prenom" placeholder="Prénom">
+                                    <input type="text" name="prenom" value="{{$candidat->prenom}} "  class="form-control" id="prenom" placeholder="Prénom">
                                     <label for="prenom">Prénom *</label>
                                     @if ($errors->has('prenom'))
                                         <span class="help-block error">
@@ -60,7 +78,7 @@
                                     @endif
                                 </div>
                                 <div class="md-form form-group mt-5 ">
-                                    <input type="text" name="adresse" value="{{old('adresse')}} "  class="form-control" id="adresse" placeholder="Adresse">
+                                    <input type="text" name="adresse" value="{{$candidat->Adresse}} "  class="form-control" id="adresse" placeholder="Adresse">
                                     <label for="adresse">Adresse *</label>
                                     @if ($errors->has('adresse'))
                                         <span class="help-block error">
@@ -69,7 +87,7 @@
                                     @endif
                                 </div>
                                 <div class="md-form form-group mt-5 ">
-                                    <input type="text" name="postal" value="{{old('postal')}} "  class="form-control" id="postal" placeholder="Code postal">
+                                    <input type="text" name="postal" value="{{$candidat->code_postal}} "  class="form-control" id="postal" placeholder="Code postal">
                                     <label for="prenom">Code postal *</label>
                                     @if ($errors->has('postal'))
                                         <span class="help-block error">
@@ -78,8 +96,9 @@
                                     @endif
                                 </div>
                                 <div class=" form-group ">
-                                        <label for="select">Pay *</label>
+                                        <label for="select">Pays *</label>
                                         <select  class="form-control" id="countries" name="countries">
+                                                <option disbaled >Sélectionner un pays</option>
                                                 <option value="Afghanistan">Afghanistan</option>
                                                 <option value="Åland Islands">Åland Islands</option>
                                                 <option value="Albania">Albania</option>
@@ -332,7 +351,7 @@
                                     @endif
                                 </div>
                                 <div class="md-form form-group mt-5 ">
-                                    <input type="text" name="ville" value="{{old('ville')}} "  class="form-control" id="ville" placeholder="Ville">
+                                    <input type="text" name="ville" value="{{$candidat->ville}} "  class="form-control" id="ville" placeholder="Ville">
                                     <label for="ville">Ville *</label>
                                     @if ($errors->has('ville'))
                                         <span class="help-block error">
@@ -341,7 +360,7 @@
                                     @endif
                                 </div>
                                 <div class="md-form form-group mt-5 ">
-                                    <input type="text" name="telephone" value="{{old('telephone')}} "  class="form-control" id="telephone" placeholder="Téléphone">
+                                    <input type="text" name="telephone" value="{{$candidat->telephone}} "  class="form-control" id="telephone" placeholder="Téléphone">
                                     <label for="ville">Téléphone *</label>
                                     @if ($errors->has('telephone'))
                                         <span class="help-block error">
@@ -352,7 +371,7 @@
                                 
                                 <div class=" form-group ">
                                         <label for="select">Apport personnel * </label>
-                                        <select class="form-control" name="apport_select" id="" value="{{old('apport_select')}}">
+                                        <select class="form-control" name="apport_select" id="" value="{{$candidat->apport_personnel}}">
                                                 <option value="" disabled selected>Apport personnel</option>
                                                 <option value="5000">jusqu'a 5 000 €</option>
                                                 <option value="10000">jusqu'a 10 000 €</option>
@@ -373,7 +392,7 @@
                                 </div>
                                 <div class=" form-group ">
                                         <label for="select">Compléments d'apports * </label>
-                                        <select class="form-control" name="complement_select" id="" value="{{old('complement_select')}}">
+                                        <select class="form-control" name="complement_select" id="" value="{{$candidat->complement_apport}}">
                                                 <option value="" disabled selected>Compléments d'apports</option>
                                                 <option value="5000">jusqu'a 5 000 €</option>
                                                 <option value="10000">jusqu'a 10 000 €</option>
@@ -394,7 +413,7 @@
                                 </div>
                                 <div class=" form-group ">
                                         <label for="select">Avancées du projet * </label>
-                                        <select class="form-control" name="avance_select" id="" value="{{old('avance_select')}}">
+                                        <select class="form-control" name="avance_select" id="" value="{{$candidat->avance_projet}}">
                                                 <option value="" disabled selected>Avancées du projet</option>
                                                 <option value="5000">Recherche de documentation</option>
                                                 <option value="500000">Projet de création</option>
@@ -476,6 +495,16 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+
+        $('.custom-file-input').on('change', function() { 
+              let fileName = $(this).val().split('\\').pop(); 
+              $(this).next('.custom-file-label').addClass("selected").html(fileName); 
+        });
+
+        @if (Session::has('status'))
+            $(".fc-success-dialog").slideDown();
+            setTimeout(function(){ $(".fc-success-dialog").slideUp(); }, 3500);
+        @endif
 
 </script>
 <script src="{{asset('js/candidat.js')}}"></script>

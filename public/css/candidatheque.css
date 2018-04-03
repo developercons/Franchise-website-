@@ -16,6 +16,9 @@ nav{
     line-height: 2;
     padding-left: 4px;
 }
+nav.navbar{
+    background: white;
+}
 .bg-candidatheque{
     position: absolute;
     height: 400px;
