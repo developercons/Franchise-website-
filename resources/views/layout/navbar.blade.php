@@ -1,7 +1,11 @@
 <nav class="top-menu bg-secondary text-white">
         <div class="container">
-                 <div class="fc-top d-flex justify-content-end">
-                     <div class="fc-about">
+                 <div class="fc-top d-flex ">
+                     <div class="fc-nav-login">
+                         <a href="{{url('candidatheque/candidat/login')}} ">Mon compte candidat</a>
+                         <a href="{{url('candidatheque/franchiseur/login')}} ">Mon compte franchiseur</a>
+                     </div>
+                     <div class="fc-about ml-auto">
                          <a href="{{route('pageAll')}} ">Comprendre la franchise </a>
                          <a href="{{route('pageParOuCommencer')}} ">Par ou commencer ?</a>
                          <a href="{{route('pageChoisirFranchise')}}">Choisir une franchise</a>
@@ -18,7 +22,9 @@
     </nav>
     <nav class="navbar fc-navbar navbar-expand-md navbar-dark  bg-secondary py-3">
         <div class="container">
-            <a class="navbar-brand" href="/">Franchise france</a>
+            <a class="navbar-brand" href="/">
+               <img src="{{voyager::image(setting('site.logo'))}}" width="200px" alt="">
+            </a>
             <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
                 aria-expanded="false" aria-label="Toggle navigation">X</button>
             <div class="collapse navbar-collapse" id="collapsibleNavId">
@@ -54,10 +60,10 @@
                         </div>
                         </li>
                      <li class="nav-item">
-                      <a class="nav-link" href="#">Ville d'implantation</a>
+                      <a class="nav-link" href="{{route('candidatheque')}}">Candidathéque</a>
                     </li>
                      <li class="nav-item">
-                      <a class="nav-link" href="{{route('candidatheque')}}">Candidathéque</a>
+                      <a class="nav-link" href="#">Contactez nous</a>
                     </li>
                 </ul>
             </div>

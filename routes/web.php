@@ -48,7 +48,7 @@ Route::group(['prefix' => 'candidatheque'],function(){
     Route::group(['prefix' => 'candidat'], function () {
         Route::get('/login', 'CandidatAuth\LoginController@showLoginForm')->name('login');
         Route::post('/login', 'CandidatAuth\LoginController@login');
-        Route::post('/logout', 'CandidatAuth\LoginController@logout')->name('logout');
+        Route::get('/logout', 'CandidatAuth\LoginController@logout')->name('candidatLogout');
       
         Route::get('/inscription', 'CandidatAuth\RegisterController@showRegistrationForm')->name('register');
         Route::post('/register', 'CandidatAuth\RegisterController@register');
@@ -65,8 +65,12 @@ Route::group(['prefix' => 'candidatheque'],function(){
         //modfy Page
         Route::get('/modify', 'CandidatController@modifyPage')->name('candidatModifyPage');
         Route::post('/modify', 'CandidatController@modifyPageCandidat')->name('candidatModifyPage');
+       
         //modify ajax
         Route::post('/modifyCandidat', 'CandidatController@modifyCandidat')->name('modifyCandidat');
+        Route::post('/addCompetence', 'CandidatController@addCompetence')->name('addCompetence');
+        
+  
     });
 
 
@@ -74,7 +78,7 @@ Route::group(['prefix' => 'candidatheque'],function(){
     Route::group(['prefix' => 'franchiseur'], function () {
         Route::get('/login', 'FranchiseurAuth\LoginController@showLoginForm')->name('login');
         Route::post('/login', 'FranchiseurAuth\LoginController@login');
-        Route::post('/logout', 'FranchiseurAuth\LoginController@logout')->name('logout');
+        Route::get('/logout', 'FranchiseurAuth\LoginController@logout')->name('franchiseurLogout');
       
         Route::get('/inscription', 'FranchiseurAuth\RegisterController@showRegistrationForm')->name('register');
         Route::post('/inscription', 'FranchiseurAuth\RegisterController@register');
@@ -97,12 +101,13 @@ Route::group(['prefix' => 'candidatheque'],function(){
 
 
 //Pages Routes
-Route::group(['prefix' => 'pages'] , function(){
-    Route::get('/tout-savoir-franchise', function(){ return view('pages.comprendre-franchise'); })->name('pageAll');
-    Route::get('/par-ou-commencer', function(){ return view('pages.par-ou-commencer'); })->name('pageParOuCommencer');
-    Route::get('/choisir-franchise', function(){ return view('pages.choisir-franchise'); })->name('pageChoisirFranchise');
 
-});
+Route::group('/pages/{slug}','HomeController@pages');
+
+
+//Blog
+Route::get('/blogs/{slug}',"HomeController@blog");
+Route::get('/blogs',"HomeController@blogPage");
 
 
 //PDF  CRETOR MUST REMOVE AFTER DEPLOY

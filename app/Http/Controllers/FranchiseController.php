@@ -62,9 +62,13 @@ class FranchiseController extends Controller
             'franchiseName' => implode("-",$request->franchiseName),
         ]);
          
+       
+        Mail::to(setting('site.email'))
+        ->cc(['marwansouah@gmail.com' , 'marwansouah@gmail.com'])
+        ->queue(new sendRequestMail($demande));
         
-        Mail::to("marouanesouah@gmail.com")->send(new sendRequestMail($demande));
-        $request->session()->forget('franchiseList');
+
+         $request->session()->forget('franchiseList');
         
         return view('franchise.requestSucess');
     }

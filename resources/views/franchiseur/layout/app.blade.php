@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title')</title>
+    <title>{{setting('site.title')}}</title>
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/mdb.min.css')}}">
     <link rel="stylesheet" href= "{{ asset('css/ionicons.min.css') }}">
@@ -24,7 +24,9 @@
 </head>
 <body>
     <nav class="mb-1 navbar navbar-expand-lg lighten-1 p-4">
-        <a class="navbar-brand" href="{{url('/') }} ">FRANCHISE FRANCE</a>
+        <a class="navbar-brand" href="{{url('/') }} ">
+           <img src="{{voyager::image(setting('site.logo'))}}" width="200px" alt="">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-5" aria-controls="navbarSupportedContent-5" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -34,17 +36,25 @@
                 <li class="nav-item">
                     <a class="nav-link waves-effect waves-light" href="{{url('candidatheque/franchiseur/')}}"><i class="icon ion-android-options"></i> Tableau de bord</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="icon ion-person"></i> Profile </a>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
-                        <a class="dropdown-item waves-effect waves-light" href="">My account</a>
-                        <a class="dropdown-item waves-effect waves-light" href="">Log out</a>
-                    </div>
+                <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light" href="{{route('franchiseurLogout')}}"><i class="icon ion-log-in"></i> Déconnexion</a>
                 </li>
               </ul>
             @else
-                <ul class="navbar-nav ml-auto nav-flex-icons">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light" href="{{url('http://localhost:8000/candidatheque/candidat/login')}}">
+                            <i class="icon ion-person"></i> 
+                            Mon compte Candidat
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link waves-effect waves-light" href="{{url('http://localhost:8000/candidatheque/franchiseur/login')}}">
+                                <i class="icon ion-ios-people"></i>  Mon compte Franchiseur
+                            </a>
+                    </li>
+                </ul>
+                <!-- <ul class="navbar-nav ml-auto nav-flex-icons">
                     <li class="nav-item">
                         <a href="{{url('http://localhost:8000/candidatheque/candidat/login')}}" class="nav-link waves-effect waves-light d-flex align-items-center ">
                            <div class="icon-round mr-1">
@@ -61,7 +71,7 @@
                             Mon compte Franchiseur
                          </a>
                     </li>
-                </ul> 
+                </ul>  -->
             @endif
         </div>
     </nav>

@@ -130,21 +130,16 @@
                                         <i class="icon ion-close"></i>
                                 </div>
                            </div>
-                    
-                            <button type="button" class="btn btn-warning mt-3">MODIFIER LES COMPETENCES</button> 
+                           <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
+                                Modifier votre compétences
+                            </button>
                         </div>
                     </div>
                 </div>
         </div>
     </div>
 </div>
-
-
-
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Launch demo modal
-        </button>
+        
 
         <div class="loading">
             <svg width="200px"  height="200px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-rolling" style="background: none;"><circle cx="50" cy="50" fill="none" ng-attr-stroke="}" ng-attr-stroke-width="}" ng-attr-r="}}" ng-attr-stroke-dasharray="ray}}" stroke="#5995cb" stroke-width="10" r="35" stroke-dasharray="164.93361431346415 56.97787143782138" transform="rotate(66 50 50)"><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform></circle></svg>
@@ -161,22 +156,28 @@
                 un erreur est survenue
             </p>
         </div>
+  
         <!-- Laoding Modal  -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Ajouter des compétences</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <p class="lead small">Cliquer sur entrer pour ajouter un nouveaux compétence</p>
+                       <div class="md-form form-group mt-5 ">
+                            <input type="text" name="competence"  data-role="materialtags"class="form-control" id="competence" placeholder="Compétence">
+                            <label for="competence">Compétence</label>
+                        </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <span class="error skills-error">Tours les champs doit etre une chaine de caractere </span>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                        <button type="button" class="btn btn-primary btn-addCompetence">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -196,17 +197,33 @@
         }).on('circle-animation-progress', function(event, progress, stepValue) {
         $(this).children('.value').text((stepValue * 100).toFixed(0) + '%   ');
         });
+
+
+
         var $modifyCandidatURL= "{{route('modifyCandidat')}}";
+        var $competenceURL = "{{route('modifyCandidat')}}";
+
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+
+
         @if (Session::has('status'))
             $(".fc-success-dialog").slideDown();
             setTimeout(function(){ $(".fc-success-dialog").slideUp(); }, 3500);
         @endif
+        
 
+        $(".btn-addCompetence").click(function(){
+            $competence = [];
+            $(".materialize-tags .chip").each(function(e){
+            //    $competence.push(e.)
+            })
+        })
 </script>
+<script src="{{asset('js/materialize-tags.min.js')}}"></script>
+
 <script src="{{asset('js/candidat.js')}}"></script>
 @endsection

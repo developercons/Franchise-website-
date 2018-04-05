@@ -7,6 +7,12 @@ use App\Candidat;
 
 class FranchiseurController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('franchiseur');
+    }
+
+
     public function addFranchisePage(){
         return view('franchiseur.addFranchise');
     }

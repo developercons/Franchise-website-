@@ -169,6 +169,7 @@ return [
             'App\\Widgets\\FranchiseWidget',
             'App\\Widgets\\CategoryWidget',
             'App\\Widgets\\SubcategoryWidget',
+            'App\\Widgets\\DemandeWidget',
         ],
 
     ],

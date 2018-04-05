@@ -10,7 +10,6 @@
     <style>
     
         .col-12{
-            height: 300px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -26,11 +25,13 @@
             opacity: 0.4;
             left: 0;
             z-index: 0;
+            
         }
         h4{
             color:white;
             font-size:30px;
             z-index:1;
+            text-transform:uppercase;
         }
         .visitor{
             background-image : url({{url('img/bg.jpg')}});
@@ -41,6 +42,9 @@
         .franchiseur{
             background-position: center;
             background-image : url({{url('img/bg-candidat.jpg')}});
+        }
+        .row {
+            height:100vh;
         }
     </style>
 </head>

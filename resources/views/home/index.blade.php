@@ -116,91 +116,33 @@
         <div class="container p-5 text-white text-center my-5">
             <h1>REJOIGNEZ LA PLUS GRANDE CANDIDATHÈQUE DÉDIÉE À LA FRANCHISE</h1>
             <a href="{{route('candidatheque')}} " class="btn btn-warning mt-5">Rejoignez nous </a>
-        </div
-    </div>
-    <div class="fc-blog mt-5">
-        <div class="container">
-            <h3 class=" text-center fc-section-title mt-5">
-                 ACTUALITÉS DE NOS RÉSEAUX DE FRANCHISE
-            </h3>
-            <div class="row mt-2">
-                <div id="customNav" class="owl-nav"></div>
-                <div class="owl-carousel fc-blog-article">
-                     <div class="card p-3">
-                         <div class="blog-date">
-                             03-17-2018
-                         </div>
-                        <div class="blog-title mt-5 text-center">
-                             AXEO SERVICES
-                        </div>
-                        <div class="bolg-body lead text-center mt-3">
-                            Help Confort confirme sa présence au salon Franchise Expo Paris....
-                        </div>
-                        <div class="blog-more text-right mt-3">
-                                <a href="">LIRE LA SUITE »</a>
-                        </div>
-                     </div>
-                     <div class="card p-3">
-                         <div class="blog-date">
-                             03-17-2018
-                         </div>
-                        <div class="blog-title mt-5 text-center">
-                             AXEO SERVICES
-                        </div>
-                        <div class="bolg-body lead text-center mt-3">
-                            Help Confort confirme sa présence au salon Franchise Expo Paris....
-                        </div>
-                        <div class="blog-more text-right mt-3">
-                                <a href="">LIRE LA SUITE »</a>
-                        </div>
-                     </div>
-                     <div class="card p-3">
-                         <div class="blog-date">
-                             03-17-2018
-                         </div>
-                        <div class="blog-title mt-5 text-center">
-                             AXEO SERVICES
-                        </div>
-                        <div class="bolg-body lead text-center mt-3">
-                            Help Confort confirme sa présence au salon Franchise Expo Paris....
-                        </div>
-                        <div class="blog-more text-right mt-3">
-                                <a href="">LIRE LA SUITE »</a>
-                        </div>
-                     </div>
-                     <div class="card p-3">
-                         <div class="blog-date">
-                             03-17-2018
-                         </div>
-                        <div class="blog-title mt-5 text-center">
-                             AXEO SERVICES
-                        </div>
-                        <div class="bolg-body lead text-center mt-3">
-                            Help Confort confirme sa présence au salon Franchise Expo Paris....
-                        </div>
-                        <div class="blog-more text-right mt-3">
-                                <a href="">LIRE LA SUITE »</a>
-                        </div>
-                     </div>
-                     <div class="card p-3">
-                         <div class="blog-date">
-                             03-17-2018
-                         </div>
-                        <div class="blog-title mt-5 text-center">
-                             AXEO SERVICES
-                        </div>
-                        <div class="bolg-body lead text-center mt-3">
-                            Help Confort confirme sa présence au salon Franchise Expo Paris....
-                        </div>
-                        <div class="blog-more text-right mt-3">
-                                <a href="">LIRE LA SUITE »</a>
-                        </div>
-                     </div>
-                </div>
-                
-            </div>
         </div>
     </div>
+    <div class="fc-testmonials">
+            <h3 class=" text-center fc-section-title">
+            ACTUALITÉS DE NOS RÉSEAUX DE FRANCHISE
+
+            </h3>
+            <div id="tesmonialNav" class="w-100 text-right"></div>
+            <div class="owl-carousel fc-tesmonial-carousel">
+                @foreach($blogs as $blog)
+                    <div class="card p-5 text-center">
+                             <div class="blog-img" style="background-image : url({{Voyager::image($blog->image)}})"></div>
+                            <h3 class="fc-ts-author">
+                                    {{$blog->title}}
+                            </h3>
+                            <p class="lead">
+                                    {{$blog->excerpt}}
+                            </p>
+                            <a href="{{url('blogs/'.$blog->slug)}}">Lire la suite</a>
+                    </div>
+                @endforeach
+            </div>
+            <div class="text-center">
+                 <a class="btn btn-primary btn-search" href="{{url('blogs')}} " role="button">VOIR TOUS</a>
+            </div>
+    </div>   
+ 
     <div class="fc-newslettre mt-5 text-center text-white">
          <div class="container">
              <h2>RESTEZ ALERTÉ </h2>
@@ -214,57 +156,7 @@
              </div>
          </div>
     </div>  
-    <div class="fc-testmonials">
-        <div class="container">
-            <h3 class=" text-center fc-section-title">
-                QUE PENSENT LES FRANCHISEURS DE FRANCHISE FRANCE ?
-
-            </h3>
-            <div id="tesmonialNav" class="w-100 text-right"></div>
-            <div class="owl-carousel fc-tesmonial-carousel">
-                <div class="card p-5 text-center">
-                        <img src="{{asset('img/11452.jpg')}} ">
-                        <h3 class="fc-ts-author">
-                                Eric P.
-                        </h3>
-                        <p class="lead">
-                            Franchise france, un site nettement approprié aux informations sur les réseaux. Idéal pour une visibilité probante dans le cadre du développement d'une franchise. 
-                            A recommander sans hésitation.
-                        </p>
-                </div>
-                <div class="card p-5 text-center">
-                        <img src="{{asset('img/11452.jpg')}} ">
-                        <h3 class="fc-ts-author">
-                                Eric P.
-                        </h3>
-                        <p class="lead">
-                            Franchise france, un site nettement approprié aux informations sur les réseaux. Idéal pour une visibilité probante dans le cadre du développement d'une franchise. 
-                            A recommander sans hésitation.
-                        </p>
-                </div>
-                <div class="card p-5 text-center">
-                        <img src="{{asset('img/11452.jpg')}} ">
-                        <h3 class="fc-ts-author">
-                                Eric P.
-                        </h3>
-                        <p class="lead">
-                            Franchise france, un site nettement approprié aux informations sur les réseaux. Idéal pour une visibilité probante dans le cadre du développement d'une franchise. 
-                            A recommander sans hésitation.
-                        </p>
-                </div>
-                <div class="card p-5 text-center">
-                        <img src="{{asset('img/11452.jpg')}} ">
-                        <h3 class="fc-ts-author">
-                                Eric P.
-                        </h3>
-                        <p class="lead">
-                            Franchise france, un site nettement approprié aux informations sur les réseaux. Idéal pour une visibilité probante dans le cadre du développement d'une franchise. 
-                            A recommander sans hésitation.
-                        </p>
-                </div>
-            </div>
-        </div>
-    </div>    
+     
 @endsection
 
 @section('script')
@@ -303,17 +195,17 @@
             });
 
             //carousel blog
-            $(".fc-blog-article").owlCarousel({
-                margin:25,
-                stagePadding:20,
-                loop:true,
-                nav: true,
-                navText: ["<i class='icon ion-chevron-left'></i>","<i class='icon ion-chevron-right'></i>"],
-                autoplay:true,
-                autoplayTimeout:1000,
-                autoplayHoverPause:true,
-                navContainer: '#customNav',
-            });
+            // $(".fc-blog-article").owlCarousel({
+            //     margin:25,
+            //     stagePadding:20,
+            //     loop:true,
+            //     nav: true,
+            //     navText: ["<i class='icon ion-chevron-left'></i>","<i class='icon ion-chevron-right'></i>"],
+            //     autoplay:true,
+            //     autoplayTimeout:1000,
+            //     autoplayHoverPause:true,
+            //     navContainer: '#customNav',
+            // });
 
             //carousel tesmonial
             $(".fc-tesmonial-carousel").owlCarousel({

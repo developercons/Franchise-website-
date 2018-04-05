@@ -6,7 +6,10 @@
     .icon-dash{
         font-size: 70px;
         text-align: center;
-        color: #ff8800;
+        color: #454b50;
+    }
+    h4{
+        text-transform:uppercase;
     }
  </style>
 @endsection
@@ -26,7 +29,7 @@
         <div class="col-md-6">
             <div class="card p-4 py-5">
                 <h4 class="text-center">Ajouter votre franchise</h4>
-                 <i class="icon-dash icon ion-ios-plus"></i>
+                 <i class="icon-dash icon ion-ios-plus-outline"></i>
                 <a href="{{route('addFranchisePage')}} " class="btn btn-warning mt-3 w-50 mx-auto">Ajouter votre franchise</a>
 
             </div>
@@ -34,7 +37,7 @@
         <div class="col-md-6">
             <div class="card p-4 py-5">
                 <h4 class="text-center">Voir les listes des candidats</h4>
-                <i class="icon-dash icon ion-ios-people"></i>
+                <i class="icon-dash icon ion-ios-people-outline"></i>
                 <a href="{{url('candidatheque/franchiseur/candidats')}} " class="btn btn-warning mt-3 w-50 mx-auto">Voir les liste des candidats</a>
             </div>
         </div>

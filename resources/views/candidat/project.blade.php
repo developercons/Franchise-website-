@@ -23,7 +23,7 @@
                     <div class="card card-blue">
                         <div>
                                 <h5 class="text-center">
-                                Votre projet
+                                   FORCE DE MON PROFIL
                                 </h5>
                                 <div class="card-body">
                                     <div id="circle">

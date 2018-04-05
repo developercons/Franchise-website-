@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title')</title>
+    <title>{{setting('site.title')}} </title>
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/mdb.min.css')}}">
     <link rel="stylesheet" href= "{{ asset('css/ionicons.min.css') }}">
@@ -14,7 +14,9 @@
 </head>
 <body>
     <nav class="mb-1 navbar navbar-expand-lg lighten-1 p-4">
-        <a class="navbar-brand" href="{{url('/') }} ">FRANCHISE FRANCE</a>
+        <a class="navbar-brand" href="{{url('/') }} ">
+        <img src="{{voyager::image(setting('site.logo'))}}" width="200px" alt="">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-5" aria-controls="navbarSupportedContent-5" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -22,20 +24,16 @@
             @if(Auth::guard('candidat')->check())
                 <ul class="navbar-nav ml-auto nav-flex-icons align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link waves-effect waves-light" href="{{url('candidatheque/franchiseur/')}}"><i class="icon ion-android-options"></i> Tableau de bord</a>
-                    </li>
-                    <li class="nav-item avatar dropdown">
-                        <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="{{asset('storage/'.Auth::guard('candidat')->user()->image)}}" width="50px" class="rounded-circle z-depth-0" alt="avatar image">
+                        <a class="nav-link waves-effect waves-light d-flex align-items-center" href="{{url('candidatheque/candidat')}}">
+                          <div style="background-image:url({{asset('storage/'.Auth::guard('candidat')->user()->image)}})" class="bg-user rounded-circle z-depth-0" alt="avatar image"> </div>
+                          Bonjour, {{Auth::guard('candidat')->user()->nom}} 
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-5">
-                            <a class="dropdown-item waves-effect waves-light" href="#">Action</a>
-                            <a class="dropdown-item waves-effect waves-light" href="#">Another action</a>
-                            <form action="{{url('candidatheque/candidat/logout')}}" method="POST">
-                                  {{ csrf_field() }}
-                                   <button type="submit" class="dropdown-item waves-effect waves-light" href="#">Logout</button>
-                            </form>
-                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light" href="{{url('candidatheque/candidat')}}"><i class="icon ion-android-options"></i> Tableau de bord</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light" href="{{route('candidatLogout')}}"><i class="icon ion-log-in"></i> Déconnexion</a>
                     </li>
                 </ul>
             @else

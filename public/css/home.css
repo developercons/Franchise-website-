@@ -210,6 +210,14 @@
     
 }
 
+
+.blog-img{
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    background-size: cover;
+    margin: 0 auto;
+}
 #fc-bg-video-wrapper::after{
     content: "";
     background: linear-gradient(to top,#6346F3,#97DCB4);

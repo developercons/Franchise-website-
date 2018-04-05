@@ -57,7 +57,7 @@
                                 </div>
                         </div>
                         <div class="form-group text-center link-inscription">
-                                <p class="lead p-0 m-0">Pas encore de compte ?</p>
+                                <p class="lead p-0 m-0">Vous n'avez pas encore de compte ?</p>
                                 <a href="{{ url('/candidatheque/franchiseur/inscription') }}" class="btn btn-link m-0 p-0 ">Inscription</a>
                         </div>
                     </form>

@@ -33,7 +33,7 @@
                                             <p>Vous recrutez ?</p>
                                             Profitez d'un moteur de recherche puissant et accédez en quelques clics à des profils qualifiés de candidats à la franchise.
                                     </p>
-                                    <a href="#" class="btn btn-warning">Je consulte les profils </a>
+                                    <a href="{{url('candidatheque/franchiseur/login')}} " class="btn btn-warning">Je consulte les profils </a>
                                 </div>
                             </div>
                     </div>

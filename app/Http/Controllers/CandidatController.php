@@ -97,4 +97,20 @@ class CandidatController extends Controller
         ], 200);
           
     }
+
+    public function addCompetence(Request $request) {
+        return "sdsdssd";
+    }
+    // public function addCompetence(Request $request) {
+    //     return response()->json([
+    //         "success" => true
+    //     ], 200);
+    //     $request->validate([
+    //         "skills"=> 'required'
+    //     ]);
+
+    //     return response()->json([
+    //         "success" => true,
+    //     ], 200);
+    // }
 }

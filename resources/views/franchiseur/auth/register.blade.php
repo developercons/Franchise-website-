@@ -22,6 +22,15 @@
                 <div class="panel-body mt-3">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('candidatheque/franchiseur/inscription') }}">
                         {{ csrf_field() }}
+                        <div class=" md-form form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                                <input id="name" type="text" class="form-control" name="name">
+                                <label for="name">Nom de franchise</label>
+                                @if ($errors->has('name'))
+                                    <span class="help-block error">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                        </div>
                         <div class=" md-form form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
                                 <label for="email">E-Mail Address</label>
