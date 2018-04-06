@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="{{asset('css/mdb.min.css')}}">
     <link rel="stylesheet" href= "{{ asset('css/ionicons.min.css') }}">
     <link rel="stylesheet" href= "{{ asset('css/candidatheque.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
     @yield('style')
     <style>
         nav.navbar .nav-link{

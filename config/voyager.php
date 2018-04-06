@@ -170,6 +170,10 @@ return [
             'App\\Widgets\\CategoryWidget',
             'App\\Widgets\\SubcategoryWidget',
             'App\\Widgets\\DemandeWidget',
+            'App\\Widgets\\CandidatWidget',
+            'App\\Widgets\\FranchiseurWidget',
+            'App\\Widgets\\PageWidget',
+            'App\\Widgets\\BlogWidget',
         ],
 
     ],

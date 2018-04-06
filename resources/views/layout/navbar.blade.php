@@ -6,9 +6,11 @@
                          <a href="{{url('candidatheque/franchiseur/login')}} ">Mon compte franchiseur</a>
                      </div>
                      <div class="fc-about ml-auto">
-                         <a href="{{route('pageAll')}} ">Comprendre la franchise </a>
-                         <a href="{{route('pageParOuCommencer')}} ">Par ou commencer ?</a>
-                         <a href="{{route('pageChoisirFranchise')}}">Choisir une franchise</a>
+                         @foreach($pages as $page)
+                            @if($page->status == 'option1')
+                                <a href="{{url('pages/'.$page->slug)}} "> {{$page->menu_title}} </a>
+                            @endif
+                         @endforeach
                      </div>
                      <!-- <div class="btn-group fc-langue ml-2">
                             <button class="btn btn-outline waves-effect dropdown-toggle fc-nav-langue" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Français</button>          

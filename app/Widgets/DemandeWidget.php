@@ -26,14 +26,14 @@ class DemandeWidget extends AbstractWidget
         $string = "Demandes";
 
         return view('voyager::dimmer', array_merge($this->config, [
-            'icon'   => 'voyager-tag',
+            'icon'   => 'voyager-move',
             'title'  => "{$count} {$string}",
-            'text'   => "Vous avez " . $count . " demandes",
+            'text'   => "Vous avez ".$count. " demandes recu. Cliquez sur le bouton ci-dessous pour afficher tous les demandes",
             'button' => [
                 'text' =>"Voir tous les demande",
                 'link' => route('voyager.demandes.index'),
             ],
-            'image' => voyager_asset('images/widget-backgrounds/03.jpg'),
+            'image' => voyager_asset('images/widget-backgrounds/02.jpg'),
         ]));
     }
 }

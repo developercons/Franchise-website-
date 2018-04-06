@@ -35,9 +35,8 @@ class HomeController extends Controller
 
 
     public function pages($slug){
-        return $slug;
         return view('pages.index',[
-            "page" => Page::where('slug', '=' , $slug),
+            "page" => Page::where('slug', '=' , $slug)->firstOrFail(),
         ]);
     }
 

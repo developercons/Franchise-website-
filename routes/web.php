@@ -100,13 +100,21 @@ Route::group(['prefix' => 'candidatheque'],function(){
 });
 
 
-//Pages Routes
 
-Route::group('/pages/{slug}','HomeController@pages');
+Route::get('/pages/{slug}',"HomeController@pages");
+// //Pages Routes
+// Route::group(['prefix' => 'pages'] , function(){
+//     Route::get('/tout-savoir-franchise', function(){ return view('pages.comprendre-franchise'); })->name('pageAll');
+//     Route::get('/par-ou-commencer', function(){ return view('pages.par-ou-commencer'); })->name('pageParOuCommencer');
+//     Route::get('/choisir-franchise', function(){ return view('pages.choisir-franchise'); })->name('pageChoisirFranchise');
+
+// });
 
 
 //Blog
 Route::get('/blogs/{slug}',"HomeController@blog");
+
+//Blog
 Route::get('/blogs',"HomeController@blogPage");
 
 
