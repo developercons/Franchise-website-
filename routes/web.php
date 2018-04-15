@@ -58,7 +58,9 @@ Route::group(['prefix' => 'candidatheque'],function(){
         Route::get('/password/reset', 'CandidatAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
         Route::get('/password/reset/{token}', 'CandidatAuth\ResetPasswordController@showResetForm');
       
-        //Project page
+
+        Route::group(['middleware' => ['candidatActive']], function () {
+            //Project page
           Route::get('/project', 'CandidatController@projectPage')->name('candidatProjectPage');
           Route::post('/project', 'CandidatController@modifyProjectPage')->name('candidatProjectPage');
 
@@ -69,7 +71,9 @@ Route::group(['prefix' => 'candidatheque'],function(){
         //modify ajax
         Route::post('/modifyCandidat', 'CandidatController@modifyCandidat')->name('modifyCandidat');
         Route::post('/addCompetence', 'CandidatController@addCompetence')->name('addCompetence');
+        });
         
+
   
     });
 
@@ -129,3 +133,20 @@ Route::get('/mailable', function () {
     return new App\Mail\SendRequestMail($invoice);
 });
 
+
+
+Route::get('/test', function() {
+    $crawler = Goutte::request('GET', 'http://www.toute-la-franchise.com/R230-franchise-franchises-alimentaires-bio.html');
+    $links = array("s" => "sd");
+    $links = $crawler->filter('.linkFiche')->each(function ($node) {
+      return $node->link()->getUri();
+
+    });
+
+ // foreach($links as $link){
+    $crawler = Goutte::request('GET', $links[0]);
+    $image = $crawler->selectImage('KALINA')->image();
+    dump( $image);
+ // }
+    return "sdds";
+});

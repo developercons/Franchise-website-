@@ -8,7 +8,7 @@
 @endsection
 @section('content')
 
-    <div id="fc-bg-video-wrapper" style="height:500px;background-image: url('{{asset('img/bg.jpg')}}')">
+    <div id="fc-bg-video-wrapper" style="height:500px;background-image: url('{{Voyager::image(setting('layout.image'))}}')">
         <div  id="fc-bg-video" style="height:100%"></div>
     </div>
     <div class="fc-bg-wrapper">
@@ -165,12 +165,20 @@
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
     
     <script>
+       
+       @php 
+            $video1 = setting('layout.video1');
+            $video2 = setting('layout.video2');
+        @endphp
+        
+        $vid1_src = "{{asset('storage/'. json_decode($video1)[0]->download_link)}}";
+        $vid2_src = "{{asset('storage/'. json_decode($video2)[0]->download_link)}}";
         $("#fc-bg-video").vegas({
                 slides: [
-                    { src: "{{asset('img/bg.jpg')}} " ,delay: 6500, video: [
+                    { src: $vid1_src ,delay: 6500, video: [
                         "{{asset('video/coverateliergourmand22.mp4')}}"
                     ]},
-                    { src: "{{asset('img/bg.jpg')}} " ,delay: 6500, video: [
+                    { src:  $vid2_src ,delay: 6500, video: [
                         "{{asset('video/coverateliergourmand21.mp4')}}"
                     ]},
                 ]

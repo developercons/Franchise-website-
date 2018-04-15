@@ -2,13 +2,36 @@
 
 @section('style')
  <link rel="stylesheet" href="{{asset('/css/candidat.css')}} ">
+ @php
+ $candidat = Auth::guard('candidat')->user();
+@endphp
+
+ @if(!$candidat->is_active)
+        <style>
+        .card::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #4f8cc294;
+            z-index: 5;
+            top: 0;
+            left: 0;
+            background: #00000091;
+            cursor: not-allowed;
+        }
+
+        .alert-account.card::after{
+        content:"";
+        position:relative;
+        }
+        </style>
+@endif
  
 @endsection
 
 @section('content')
-@php
- $candidat = Auth::guard('candidat')->user();
-@endphp
+
 <div class="container-fluid my-5">
     <div class="row">
         <div class="fc-title">
@@ -16,6 +39,13 @@
                 Tableau de bord 
         </div>
     </div>
+    @if(!$candidat->is_active)
+    <div class="row mb-4 justify-content-center">
+         <div class="card alert-account">
+             Votre compte n'a pas encore été approuvé, une fois que l'administrateur du site a approuvé votre compte, vous pouvez éditer et postuler votre projet
+         </div>
+    </div>
+    @endif
     <div class="row">
         <div class="col-md-4">
             <div class="card card-profile">

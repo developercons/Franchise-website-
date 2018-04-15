@@ -144,3 +144,8 @@
     text-transform: uppercase;
     display: none;
   }
+
+  .alert-account{
+    background: linear-gradient(to right,#F00000,#DC281E);
+    color: white;
+  }
