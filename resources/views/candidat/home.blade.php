@@ -42,7 +42,7 @@
     @if(!$candidat->is_active)
     <div class="row mb-4 justify-content-center">
          <div class="card alert-account">
-             Votre compte n'a pas encore été approuvé, une fois que l'administrateur du site a approuvé votre compte, vous pouvez éditer et postuler votre projet
+             Votre compte n'a pas encore été approuvé, une fois que l'administrateur du site a approuvé votre compte, vous pouvez éditer votre profile
          </div>
     </div>
     @endif

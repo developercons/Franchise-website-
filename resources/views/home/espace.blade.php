@@ -62,7 +62,7 @@
             <a class="col-md-4 text-center candidat" href="{{url('candidatheque/candidat/login')}} ">
                 <h4>Espace Candidat</h4>
             </a>
-            <a class="col-md-4 text-center franchiseur" href="{{url('candidatheque/candidat/login')}} ">
+            <a class="col-md-4 text-center franchiseur" href="{{url('candidatheque/franchiseur/login')}} ">
                 <h4>Espace franchiseur</h4>
             </a>
         </div>

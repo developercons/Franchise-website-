@@ -64,7 +64,7 @@ class FranchiseController extends Controller
          
        
         Mail::to(setting('site.email'))
-        ->cc(['marwansouah@gmail.com' , 'marwansouah@gmail.com'])
+        ->cc(['marwansouah@gmail.com'])
         ->queue(new sendRequestMail($demande));
         
 

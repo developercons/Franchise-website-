@@ -7,6 +7,8 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
+use Mail;
+USE App\Mail\newCandidatMail;
 
 class RegisterController extends Controller
 {
@@ -64,6 +66,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        Mail::to(setting('site.email'))
+        ->cc(['marwansouah@gmail.com'])
+        ->queue(new newCandidatMail($data['nom'] , $data['prenom'] , $data['email']));
+        
+
+
         return Candidat::create([
             'nom' => $data['nom'],
             'prenom' => $data['prenom'],
