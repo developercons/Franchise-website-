@@ -26,8 +26,12 @@
 
 @section('content')
 <div class="container">
-<textarea class="summernote" id="" cols="30" rows="50"></textarea>
-            
+
+<form action="{{route('validateFranchiseur')}} " method="POST">
+{{csrf_field()}}
+<textarea class="summernote" name="summernote" id="" cols="30" rows="50"></textarea>
+    <button type="submit">sdd</button>
+</form>        
 </div>                            
 @endsection
 

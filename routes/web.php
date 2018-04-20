@@ -85,10 +85,10 @@ Route::group(['prefix' => 'candidatheque'],function(){
         Route::get('/logout', 'FranchiseurAuth\LoginController@logout')->name('franchiseurLogout');
       
         Route::get('/inscription', 'FranchiseurAuth\RegisterController@showRegistrationForm')->name('register');
-        Route::post('/inscription', 'FranchiseurAuth\RegisterController@register');
+       // Route::post('/inscription', 'FranchiseurAuth\RegisterController@register');
         
         //Validate franchiseur data
-        Route::post('inscription/validate/{validate?}' , 'FranchiseurController@validateFranchiseur')->name('validateFranchiseur');
+        Route::post('inscription' , 'FranchiseurController@validateFranchiseur')->name('validateFranchiseur');
 
 
         Route::post('/password/email', 'FranchiseurAuth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');

@@ -168,6 +168,8 @@ return [
          * Package Service Providers...
          */
         Weidner\Goutte\GoutteServiceProvider::class, // [1]
+        'Intervention\Image\ImageServiceProvider',
+
         /*
          * Application Service Providers...
          */
@@ -226,6 +228,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Goutte' => Weidner\Goutte\GoutteFacade::class, // [2]
+        'Image' => 'Intervention\Image\Facades\Image',
+
     ],  
 
 ];
