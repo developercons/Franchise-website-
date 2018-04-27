@@ -139,18 +139,5 @@ Route::get('/mailable', function () {
 
 
 
-Route::get('/test', function() {
-    $crawler = Goutte::request('GET', 'http://www.toute-la-franchise.com/R230-franchise-franchises-alimentaires-bio.html');
-    $links = array("s" => "sd");
-    $links = $crawler->filter('.linkFiche')->each(function ($node) {
-      return $node->link()->getUri();
+Route::get('/scraping',"ScrapingController@startScraping");
 
-    });
-
- // foreach($links as $link){
-    $crawler = Goutte::request('GET', $links[0]);
-    $image = $crawler->selectImage('KALINA')->image();
-    dump( $image);
- // }
-    return "sdds";
-});
